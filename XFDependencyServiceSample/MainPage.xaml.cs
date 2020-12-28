@@ -13,6 +13,13 @@ namespace XFDependencyServiceSample
         public MainPage()
         {
             InitializeComponent();
+
+            var deviceInfoService = DependencyService.Get<IDeviceInfoService>();
+
+            if (deviceInfoService != null)
+            {
+                DeviceModelLabel.Text = deviceInfoService.GetDeviceModel();
+            }
         }
     }
 }
